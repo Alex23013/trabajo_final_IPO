@@ -42,13 +42,13 @@ public:
 	{
 		int carta;
 		if(baraj.get_size()==0){
-			carta=random(14);
+			carta=random(13);
 			baraj.add_card(carta);
 			return carta;}
 		
-		carta=random(14);
+		carta=random(13);
 		while(esta(carta))
-			{carta=random(14);}
+			{carta=random(13);}
 		baraj.add_card(carta);
 		return carta;			
 	}
