@@ -55,13 +55,6 @@ public:
 			doblas_tu_dinero();
 			b.dinero=b.dinero*2;
 			break;};
-		for(int i=0;i<2;i++){
-			baraj.random_cartas();}
-		if(b.play(b,baraj,win,&tmp_player))
-			{//cout<< "pierdes tu apuesta"<<endl;
-			pierdes_lo_apostado();
-			b.dinero=b.dinero-apuesta;
-			break;};
 		
 		if(win == false)
 			{b.dinero=win_two_player(&tmp_mesa,&tmp_player,b.dinero,apuesta);
