@@ -19,11 +19,11 @@ namespace Interfaz
 
 	static void print_card(int num)
 		{
-		cout << " ____  "<<endl;
-		cout << "|    | "<<endl;
-		cout << "| "<<num<<"  | "<<endl;
-		cout << "| "<<"&"<<"  | "<<endl;
-		cout << "|____| "<<endl;
+		cout << " _____  "<<endl;
+		cout << "|     | "<<endl;
+		cout << "| "<<num<<"   | "<<endl;
+		cout << "| "<<"&"<<"   | "<<endl;
+		cout << "|_____| "<<endl;
 		}
 	static void volaste()
  		{
