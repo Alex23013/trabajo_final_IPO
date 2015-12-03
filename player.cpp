@@ -4,82 +4,84 @@ using namespace std;
 
 
 class player
-{public:
-	int dinero;
+{
+	protected:
+		int dinero;
 	
-player()
-	{this->dinero =20;}
-int mostrar_dinero()
-	{return dinero;}
-bool val_dinero(int din)
-	{
-	if(din>this->dinero)
-		{return false;}
-	return true;
-	}
+	player()
+		{this->dinero =20;}
+
+	int mostrar_dinero()
+		{return dinero;}
+
+	bool val_dinero(int din)
+		{
+		if(din>this->dinero)
+			{return false;}
+		return true;
+		}
 };
 
 
 class player_mesa:public player
 {
-public:	
+	public:	
 
-bool play(player a,baraja baraj,bool win,mano*tmp)
-	{
-	//cout <<"mesa:Es mi turno"<<endl;
-	la_mesa_puede_jugar();
-	if(tmp->suma_mano()<14)
-				{
-				baraj.dar_a_jugador(tmp);
-				baraj.dar_a_jugador(tmp);
-				if(tmp->suma_mano()<12)
-					{baraj.dar_a_jugador(tmp);}
-				tmp->print_mano();
-				if(tmp->validar() == false)
-							{
-							//cout << "la mesa volo =o"<<endl;
-							la_mesa();
-							volo();
-							win=true;			
-							}
-				}
-	return win;
-	}
+		bool play(player a,baraja baraj,bool win,mano*tmp)
+			{
+			//cout <<"mesa:Es mi turno"<<endl;
+			la_mesa_puede_jugar();
+			if(tmp->suma_mano()<14)
+						{
+						baraj.dar_a_jugador(tmp);
+						baraj.dar_a_jugador(tmp);
+						if(tmp->suma_mano()<12)
+							{baraj.dar_a_jugador(tmp);}
+						tmp->print_mano();
+						if(tmp->validar() == false)
+									{
+									//cout << "la mesa volo =o"<<endl;
+									la_mesa();
+									volo();
+									win=true;			
+									}
+						}
+			return win;
+			}
 };
 
 class player_person:public player
 {
-public:	
-bool play(player b,baraja baraj,bool win,mano *tmp)
-	{
-	//cout <<"player:Es mi turno"<<endl;
-	puede_jugar();
-	if(tmp->get_size()<1)
-				{
-				baraj.dar_a_jugador(tmp);
-				}
-			tmp->print_mano();
-			int opcion =2;
-			while(opcion ==2)
-				{
-				escoge_una_opcion();
-				cout <<"2: Pedir carta  3:terminar turno "<<endl;
-				cin >> opcion;
-				if(opcion ==2)
+	public:	
+	bool play(player b,baraja baraj,bool win,mano *tmp)
+		{
+		//cout <<"player:Es mi turno"<<endl;
+		puede_jugar();
+		if(tmp->get_size()<1)
 					{
 					baraj.dar_a_jugador(tmp);
-					tmp->print_mano();
 					}
-			
-				if(tmp->validar() == false)
+				tmp->print_mano();
+				int opcion =2;
+				while(opcion ==2)
 					{
-					//cout << "volaste =("<<endl;
-					volaste();
-					opcion =3;
-					win=true;			
+					escoge_una_opcion();
+					cout <<"2: Pedir carta  3:terminar turno "<<endl;
+					cin >> opcion;
+					if(opcion ==2)
+						{
+						baraj.dar_a_jugador(tmp);
+						tmp->print_mano();
+						}
+			
+					if(tmp->validar() == false)
+						{
+						//cout << "volaste =("<<endl;
+						volaste();
+						opcion =3;
+						win=true;			
+						}
 					}
-				}
-	return win;
-	}
+		return win;
+		}
 };
-
