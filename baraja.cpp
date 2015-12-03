@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <vector>
 #include <cstdlib> 
@@ -9,56 +8,59 @@ using namespace std;
 
 class baraja
 {
-private:
-	mano baraj;
-public:
+	private:
+		mano baraj;
+	public:
 	
-	long int random(int max)
-	{
-		srand((unsigned)time(0)); 
-		   	int random_integer; 
-		random_integer = (rand()%max)+1; 
-		return random_integer;
-	}
-	void print_baraj()
-		{
-			cout << "La baraj "	;		
-			baraj.print_mano();
-		}
-
-	bool esta(int num)
-	{
-		bool tmp =false;		
-		for(baraj.myIT = baraj.vec.begin();baraj.myIT != baraj.vec.end();baraj.myIT++)	
- 			{
-				if(num==*baraj.myIT){
-					tmp =true;
-					return tmp;}
+		long int random(int max)
+			{
+			srand((unsigned)time(0)); 
+			int random_integer; 
+			random_integer = (rand()%max)+1; 
+			return random_integer;
 			}
-		return tmp;
-	}
+		void print_baraj()
+			{
+				cout << "La baraj ";		
+				baraj.print_mano();
+			}
+
+		bool esta(int num)
+			{
+			bool tmp =false;		
+			for(baraj.myIT = baraj.vec.begin();baraj.myIT != baraj.vec.end();baraj.myIT++)	
+	 				{
+					if(num==*baraj.myIT)
+						{
+						tmp =true;
+						return tmp;
+						}
+					}
+			return tmp;
+			}
 	
-	int random_cartas()
-	{
-		int carta;
-		if(baraj.get_size()==0){
-			carta=random(13);
-			baraj.add_card(carta);
-			return carta;}
+		int random_cartas()
+			{
+			int carta;
+			if(baraj.get_size()==0)
+				{
+				carta=random(13);
+				baraj.add_card(carta);
+				return carta;
+				}
 		
-		carta=random(13);
-		while(esta(carta))
-			{carta=random(13);}
-		baraj.add_card(carta);
-		return carta;			
-	}
-	void dar_a_jugador(mano *a)
-	{
-		a->add_card(baraj.vec[baraj.vec.size()-1]);
-		baraj.erase_card();
-	}
-	
-	
+			carta=random(13);
+			while(esta(carta))
+				{carta=random(13);}
+			baraj.add_card(carta);
+			return carta;			
+			}
+
+		void dar_a_jugador(mano *a)
+			{
+			a->add_card(baraj.vec[baraj.vec.size()-1]);
+			baraj.erase_card();
+			}
 };
 /*
 int main()
