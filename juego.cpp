@@ -45,22 +45,23 @@ public:
 				if(b.play(b,baraj,win,&tmp_player))
 					{//cout<< "pierdes tu apuesta"<<endl;
 					pierdes_lo_apostado();
-					b.dinero=b.dinero-apuesta;
-					break;};
+					//b.dinero=b.dinero-apuesta;
+					b.set_dinero(b.mostrar_dinero()-apuesta);
+					break;}
 				for(int i=0;i<2;i++){
 					baraj.random_cartas();}
 				if(a.play(a,baraj,win,&tmp_mesa))
 					{//cout<< "GANASTE y  te llevas el doble"<<endl;
 					ganaste();
 					doblas_tu_dinero();
-					b.dinero=b.dinero*2;
-					break;};
+					b.set_dinero(b.mostrar_dinero()*2);
+					break;}
 		
 				if(win == false)
-					{b.dinero=win_two_player(&tmp_mesa,&tmp_player,b.dinero,apuesta);
+					{b.set_dinero(win_two_player(&tmp_mesa,&tmp_player,b.mostrar_dinero(),apuesta));
 					break;}
 			}	
-		return b.dinero;
+		return b.mostrar_dinero();
 		}
 
 	int blackjack()
@@ -77,10 +78,10 @@ public:
 		if(b.val_dinero(apuesta))
 			{
 		
-			b.dinero=partida(a,b,false,apuesta);
+			b.set_dinero(partida(a,b,false,apuesta));
 			//cout <<"Le queda "<<b.mostrar_dinero()<<" dolares"<<endl;
 			tienes_tanto_US(b.mostrar_dinero());
-			if(b.dinero <=0)
+			if(b.mostrar_dinero() <=0)
 				{
 				//cout << "Ya no puedes seguir jugando "<<endl;
 				//cout <<" Se te acabaron los dolares "<<endl;	
