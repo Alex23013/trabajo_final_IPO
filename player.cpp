@@ -10,9 +10,11 @@ class player
 	
 	player()
 		{this->dinero =20;}
-
+	public:
 	int mostrar_dinero()
 		{return dinero;}
+	void set_dinero(int dinero)
+		{this-> dinero =dinero;}
 
 	bool val_dinero(int din)
 		{
