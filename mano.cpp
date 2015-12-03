@@ -3,23 +3,24 @@
 #include"namespace_interfaz.h"
 using namespace std;
 using namespace Interfaz;
+
 class mano
 {
 public:
 	vector<int> vec;
 	vector<int>::iterator myIT; 
 	
-	int get_size(){
-   		return vec.size();}
+	int get_size()
+		{return vec.size();}
 
-   	void add_card(int i){
-      		vec.push_back(i);}
-	void erase_card(){
-      		vec.pop_back();}
+   	void add_card(int i)
+		{vec.push_back(i);}
+
+	void erase_card()
+		{vec.pop_back();}
 
 	void print_mano()
 		{
-		
 		for(myIT = vec.begin();myIT != vec.end();myIT++)
 			{
 			    print_card(*myIT);
@@ -34,22 +35,24 @@ public:
  			{ suma =suma+*myIT;}
 		return suma;
 		}
+
 	bool validar()
 		{
 		bool tmp=false;
-		if(suma_mano()<21){tmp =true;}
+		if(suma_mano()<21)
+			{tmp =true;}
 		return tmp;
 		}
 
 	bool operator<(mano b)
-	{
-	bool tmp;
-	if(suma_mano()<b.suma_mano())
-	{tmp =true;}
-	else
-	{tmp=false;}
-	return tmp;
-	}
+		{
+		bool tmp;
+		if(suma_mano()<b.suma_mano())
+			{tmp =true;}
+		else
+			tmp=false;}
+		return tmp;
+		}
 
 };
  /*
