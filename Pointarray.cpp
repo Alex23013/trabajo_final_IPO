@@ -1,5 +1,5 @@
 
-#include "Point.h"
+#include "point.h"
 
 class Pointarray(){
 private:
